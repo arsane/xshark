@@ -12,11 +12,7 @@
 
 #define PNODE_FINFO(proto_node)  ((proto_node)->finfo)
 
-#ifdef WIN32
 #define ABS_TIME_TO_STR(x) abs_time_to_str(x, ABSOLUTE_TIME_UTC, TRUE)
-#else
-#define ABS_TIME_TO_STR(x) abs_time_to_str(x)
-#endif
 
 unsigned int opt_verbosity = 1;
 

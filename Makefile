@@ -19,8 +19,7 @@ all : xshark
 
 xshark : $(OBJS)
 	$(LINK.o) -o $@ $(OBJS) `pkg-config --libs glib-2.0 gthread-2.0` \
-		-Wl,-rpath=/usr/lib/wireshark \
-		/usr/lib/wireshark/libwireshark.so /usr/lib/wireshark/libwiretap.so
+		-lwireshark -lwiretap
 
 clean:
 	$(RM) xshark $(OBJS:.o=.d) $(OBJS)

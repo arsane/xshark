@@ -1,0 +1,6 @@
+This is a simple program used to parse packet structure using the libwireshark
+library and export data into odbc database. it is based on the tshark program's
+framework but removed unrelated code lines.
+
+The program could be compiled on linux and windows. The odbc part only supported
+on windows.

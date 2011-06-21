@@ -1,0 +1,164 @@
+USE [AnalysisSystem]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbIuPSSignalPacket](
+	[PacketId] [bigint] IDENTITY(1,1) NOT NULL,
+	[PacketArrivalTime] [datetime] NOT NULL,
+	[PacketArrivalInstant] [int] NOT NULL,
+	[FrameLength] [smallint] NOT NULL,
+	[FrameNumber] [bigint] NULL,
+	[SourceMac] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[DestinationMac] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[VlanType] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[OuterIPVersion] [varchar](20) NOT NULL,
+	[OuterSourceIP] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[OuterDestinationIP] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[OuterIPHeaderLength] [smallint] NOT NULL,
+	[OuterIPTotalLength] [smallint] NOT NULL,
+	[OuterIPFlag] [varchar](20) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[OuterIPIdentification] [int] NOT NULL,
+	[OuterIPFragmentOffset] [int] NOT NULL,
+	[OuterIPTTL] [int] NOT NULL,
+	[OuterIPProtocol] [varchar](20) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[SCTPSourcePort] [smallint] NOT NULL,
+	[SCTPDestinationPort] [smallint] NOT NULL,
+	[SCTPVerificationTag] [varchar](20) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[M3UAVersion] [varchar](20) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[M3UAReserved] [smallint] NOT NULL,
+	[M3UAMessageClass] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[M3UAMessageType] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[M3UAMessageLength] [smallint] NOT NULL,
+	[M3UAParameterTag] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[M3UAParameterLength] [smallint] NOT NULL,
+	[M3UAOPC] [smallint] NOT NULL,
+	[M3UADPC] [smallint] NOT NULL,
+	[M3UASI] [varchar](20) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[M3UANI] [int] NOT NULL,
+	[M3UAMP] [int] NOT NULL,
+	[M3UASLS] [int] NOT NULL,
+	[M3uaSequenceNumber] [smallint] NULL,
+	[SCCPMessageType] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
+	[SLR] [int] NULL,
+	[DLR] [int] NULL,
+	[EqualClass] [varchar](20) COLLATE Chinese_PRC_CI_AS NULL,
+	[ReleaseCause] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[SCCPPointerToFirstMandatoryVariableParameter] [int] NULL,
+	[SCCPPointerToSecondMandatoryVariableParameter] [int] NULL,
+	[SCCPPointerToThirdMandatoryVariableParameter] [int] NULL,
+	[SCCPPointerToOptionalParameter] [int] NULL,
+	[SCCPCalledPc] [int] NULL,
+	[SCCPCalledSubSystemNumber] [int] NULL,
+	[SCCPCallingPc] [int] NULL,
+	[SCCPCallingSubSystemNumber] [int] NULL,
+	[RanapPDU] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[ProcedureName] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[RanapPduParams] [xml] NULL,
+	[RanapGtpTEI] [bigint] NULL,
+	[RanapProcedureCode] [smallint] NULL,
+	[RanapIMSI] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[RanapDigits] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[RanapRAB_ID] [varchar](20) NULL,
+	[RanapLAIParams] [xml] NULL,
+	[RanapRAC] [varchar](20) NULL,
+    [SAI_pLMNidentity] [varchar] (50) NULL,
+    [SAI_MCC] [smallint] NULL, 
+    [SAI_MNC] [smallint] NULL,
+    [SAI_LAC] [varchar](50) NULL, 
+    [SAI_SAC] [varchar](50) NULL,
+	[RanapGlobalRNC_ID] [xml] NULL,
+	[Gsm_a_dtapTMSI] [bigint] NULL,
+    [GsmServiceType] [varchar](50) NULL,
+    [GsmParams] [xml] NULL,
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+
+
+
+
+USE [AnalysisSystem]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbIUPACKETDATA](
+	[PacketId] [bigint] IDENTITY(1,1) NOT NULL,
+	[PacketArrivalTime] [datetime] NOT NULL,
+	[PacketArrivalInstant] [int] NULL,
+	[FrameLength] [int] NULL,
+	[FrameNumber] [bigint] NULL,
+	[SourceMac] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[DestinationMac] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[VlanType] [varchar](20) COLLATE Chinese_PRC_CI_AS NULL,
+	[OuterIPVersion] [varchar](20) COLLATE Chinese_PRC_CI_AS NULL,
+	[OuterSourceIP] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[OuterDestinationIP] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[OuterIPHeaderLength] [smallint] NULL,
+	[OuterIPTotalLength] [smallint] NULL,
+	[OuterIPFlag] [varchar](5) COLLATE Chinese_PRC_CI_AS NULL,
+	[OuterIPIdentification] [int] NULL,
+	[OuterIPFragmentOffset] [int] NULL,
+	[OuterIPTTL] [int] NULL,
+	[OuterIPProtocol] [varchar](20) COLLATE Chinese_PRC_CI_AS NULL,
+	[OuterSourcePort] [int] NULL,
+	[OuterDestinationPort] [int] NULL,
+	[OuterUDPLength] [smallint] NULL,
+	[GTPFlags] [varchar](10) COLLATE Chinese_PRC_CI_AS NULL,
+	[GTPMessageType] [varchar](20) COLLATE Chinese_PRC_CI_AS NULL,
+	[GTPLength] [smallint] NULL,
+	[GTPTEID] [int] NULL,
+	[GTPSequenceNumber] [int] NULL,
+	[GTPNpduNumber] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[GTPNextExtensionHeaderType] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPVersion] [varchar](20) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPHeaderlength] [smallint] NULL,
+	[IPDifferentiatedService] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPTotalLength] [smallint] NULL,
+	[IPIdentification] [int] NULL,
+	[IPFlags] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPFragmentOffset] [int] NULL,
+	[IPTimeToLive] [int] NULL,
+	[IPProtocol] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPHeaderChecksum] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPSource] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[IPDestination] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[TCPTotalLength] [smallint] NULL,
+	[TCPSourcePort] [int] NULL,
+	[TCPDestinationPort] [int] NULL,
+	[TCPSegmentLength] [smallint] NULL,
+	[TCPStreamIndex] [int] NULL,
+	[TCPSequenceNumber] [bigint] NULL,
+	[TCPAcknowledgementNumber] [bigint] NULL,
+	[TCPHeaderLength] [smallint] NULL,
+	[TCPFlags] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[TCPWindowSize] [int] NULL,
+	[TCPChecksum] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[UDPSourcePort] [int] NULL,
+	[UDPDestinationPort] [int] NULL,
+	[UDPChecksum] [varchar](50) COLLATE Chinese_PRC_CI_AS NULL,
+	[UDPLength] [smallint] NULL,
+    [DataPriview] [varchar](450) NULL,
+	[HTTPParams] [xml] NULL,
+	[RTSPParams] [xml] NULL,
+	[RTPParams] [xml] NULL,
+	[BitTorrentParams] [xml] NULL,
+	[OICQParams] [xml] NULL,
+	[FTPParams] [xml] NULL,
+	[DataParams] [xml] NULL,
+	[ReassembledCollectionParams] [xml] NULL,
+	[ApplicationDataParams] [xml] NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+
+
